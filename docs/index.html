@@ -1,0 +1,95 @@
+<!doctype html>
+<html class="no-js" lang="ja">
+
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <title>Baboon demo</title>
+    <meta name="description" content="a clone of Inuzaru tanka generator">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fork-awesome/1.1.7/css/fork-awesome.min.css" integrity="sha256-gsmEoJAws/Kd3CjuOQzLie5Q3yshhvmo7YNtBG7aaEY=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/kognise/water.css@latest/dist/light.min.css">
+    <meta name="theme-color" content="#fafafa">
+</head>
+
+<body>
+
+    <!--[if IE]>
+      <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+    <![endif]-->
+
+    <!-- Add your site or application content here -->
+    <div id="app">
+        <section>
+          <h1>Baboon demo</h1>
+          <div><button @click="refresh"><i class="fa fa-sync"></i></button></div>
+        </section>
+        <section>
+          <ul>
+            <li v-for="(elem, idx) in tanka" :key="idx">{{ elem }}</li>
+          </ul>
+        </section>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" integrity="sha256-0rguYS0qgS6L4qVzANq4kjxPLtvnp5nn2nB5G1lWRv4=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.js" integrity="sha256-ufGElb3TnOtzl5E4c/qQnZFGP+FYEZj5kbSEdJNrw0A=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js" integrity="sha256-S1J4GVHHDMiirir9qsXWc8ZWw74PHHafpsHp5PXtjTs=" crossorigin="anonymous"></script>
+    <script src="../dist/bundle.js">
+
+    <script defer>
+        // Avoid `console` errors in browsers that lack a console.
+        (function () {
+            var method;
+            var noop = function () {};
+            var methods = [
+                "assert", "clear", "count", "debug", "dir", "dirxml", "error",
+                "exception", "group", "groupCollapsed", "groupEnd", "info", "log",
+                "markTimeline", "profile", "profileEnd", "table", "time", "timeEnd",
+                "timeline", "timelineEnd", "timeStamp", "trace", "warn"
+            ];
+            var length = methods.length;
+            var console = (window.console = window.console || {});
+            while (length--) {
+                method = methods[length];
+                // Only stub undefined methods.
+                if (!console[method]) {
+                    console[method] = noop;
+                }
+            }
+        }());
+    </script>
+
+    <script defer>
+      const app = new Vue({
+        el: "#app",
+        data () {
+          return {
+            baboon: undefined,
+            tanka: []
+          }
+        },
+        methods: {
+          refresh () {
+            this.$nextTick(() => {
+              this.tanka = [0,0,0,0,0].map(() => {
+                return this.baboon.create()
+              })
+            })
+          }
+        },
+        async mounted () {
+          await axios.get("https://gson.fayazara.now.sh?url=https://docs.google.com/spreadsheets/d/e/2PACX-1vQn9FFMyLY_7tKVg_4gEU9wAWcwtXK6eT8Vf8Ob97jbzm2vAsERThvspBTdgihytUdRkPO1HvDxWBCo/pub?output=csv")
+            .then(res => {
+              this.baboon = new Baboon(res.data)
+            })
+            .catch(e => {
+              this.baboon = new Baboon([])
+            })
+          this.refresh()
+        }
+      })
+    </script>
+
+</body>
+</html>
