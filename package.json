@@ -1,14 +1,16 @@
 {
   "name": "baboon",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "a clone of Inuzaru tanka generator",
   "main": "src/baboon.js",
   "scripts": {
     "dev": "webpack --mode development --watch",
-    "build": "webpack --mode production"
+    "build": "webpack --mode production",
+    "copy": "cpy ./dist/baboon.js ./docs/"
   },
   "author": "paithiov909",
   "license": "MIT",
+  "private": true,
   "repository": {
     "type": "git",
     "url": "https://github.com/paithiov909/baboon.git"
