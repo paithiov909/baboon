@@ -17,7 +17,7 @@
     <meta property="og:title" content="Baboon demo">
     <meta property="og:image" content="https://paithiov909.github.io/baboon/baboon_header.jpg">
     <meta property="og:description" content="a clone of Inuzaru tanka generator">
-    <meta name="twitter:card" content="summary">
+    <meta name="twitter:card" content="summary_large_image">
     <style>
       section {
         margin: 1rem;
@@ -44,16 +44,16 @@
           <div>
             <p>A clone of Inuzaru tanka generator. See <a href="https://github.com/paithiov909/baboon" target="_new" rel="noopener">repository</a>.</p>
             <p><a href="http://sasakiarara.com/sizzle/" target="_new" rel="noopener">短歌自動生成装置「犬猿」（星野しずる）</a>のクローンです。</p>
-            <p>所定の形式のGoogleスプレッドシートのURLを指定することで使用する語彙を差し替えることができます。<wbr>スプレッドシートにはword列（語彙が含まれる列）、type列（名詞・修飾部・述部のいずれかを含む列）、mora列（語彙の音数を含む列）がある必要があります。有効なURLを入力するたびに語彙が追加されます。</p>
+            <p>CSV形式で公開したGoogleスプレッドシートのURLを指定することで使用する語彙を差し替えることができます。<wbr>スプレッドシートにはword列（語彙が含まれる列）、type列（名詞・修飾部・述部のいずれかを含む列）、mora列（語彙の音数を含む列）がある必要があります。有効なURLを入力するたびに語彙が追加されます。</p>
             <p>デフォルトで登録されている語彙は本家の犬猿に収録されている語彙を借りたものです。</p>
           </div>
         </section>
         <section>
           <form @submit.stop>
             <div>
-              <label for="textArea">Spreadsheet URL</label>
+              <label for="textarea">Spreadsheet URL</label>
               <div>
-                <input type="url" class="form-control" v-model.trim="db" rows="1" minlength="1" maxlength="340" placeholder="URL">
+                <input type="url" class="form-control" v-model.trim="db" rows="1" minlength="1" maxlength="340" placeholder="URL" name="textarea">
               </div>
             </div>
             <div>
