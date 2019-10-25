@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "webpack --mode development --watch",
     "build": "webpack --mode production",
-    "copy": "cpy ./dist/baboon.js ./docs/"
+    "copy": "cpy ./dist/baboon.js ./docs/dist/"
   },
   "author": "paithiov909",
   "license": "MIT",
