@@ -4,9 +4,9 @@ a clone of Inuzaru tanka generator
 
 ## Usage
 
-In the browser:
+In browser:
 
-```{html}
+```html
 <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script>
 <script src="baboon/dist/baboon.js"></script>
 <script>
@@ -21,7 +21,7 @@ In the browser:
 
 As an ES6 module:
 
-```{js}
+```js
 import axios from "axios"
 import Baboon from "baboon"
 
@@ -39,7 +39,7 @@ console.log(baboon.create())
 
 ## License
 
-Copyright (c) 2019 Kato Akiru
+Copyright (c) 2019-2020 Kato Akiru
 
 Released under the MIT license
 https://github.com/paithiov909/baboon/blob/master/LICENSE
