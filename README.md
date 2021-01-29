@@ -9,7 +9,7 @@ In browser:
 ```html
 <script src="baboon/dist/main.js"></script>
 <script>
-  const baboon = new Baboon(res.data)
+  const baboon = new Baboon()
   console.log(baboon.create())
 </script>
 ```
