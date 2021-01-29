@@ -7,9 +7,9 @@
     <title>Baboon demo</title>
     <meta name="description" content="Yet another implementation of Inuzaru tanka generator">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pretty-checkbox/3.0.0/pretty-checkbox.min.css" integrity="sha256-KCHcsGm2E36dSODOtMCcBadNAbEUW5m+1xLId7xgLmw=" crossorigin="anonymous" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fork-awesome/1.1.7/css/fork-awesome.min.css" integrity="sha256-gsmEoJAws/Kd3CjuOQzLie5Q3yshhvmo7YNtBG7aaEY=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pretty-checkbox/3.0.3/pretty-checkbox.min.css" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fork-awesome/1.1.7/css/fork-awesome.min.css" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/kognise/water.css@latest/dist/light.min.css" />
     <link rel="stylesheet" href="dist/share-this.css" />
     <meta property="og:url" content="https://paithiov909.github.io/baboon/">
@@ -44,25 +44,12 @@
           <div>
             <p>Yet another implementation of Inuzaru tanka generator. See <a href="https://github.com/paithiov909/baboon" target="_new" rel="noopener">repository</a>.</p>
             <p><a href="http://sasakiarara.com/sizzle/" target="_new" rel="noopener">短歌自動生成装置「犬猿」（星野しずる）</a>のクローンです。</p>
-            <p>CSV形式で公開したGoogleスプレッドシートのURLを指定することで使用する語彙を差し替えることができます。<wbr>スプレッドシートにはword列（語彙が含まれる列）、type列（名詞・修飾部・述部のいずれかを含む列）、mora列（語彙の音数を含む列）がある必要があります。有効なURLを入力するたびに語彙が追加されます。</p>
             <p>デフォルトで登録されている語彙は本家の犬猿に収録されている語彙を借りたものです。</p>
           </div>
         </section>
         <section>
           <form @submit.stop>
             <div>
-              <label for="textarea">Spreadsheet URL</label>
-              <div>
-                <input type="url" class="form-control" v-model.trim="db" rows="1" minlength="1" maxlength="340" placeholder="URL" name="textarea">
-              </div>
-            </div>
-            <div>
-                <div class="pretty p-slim p-smooth">
-                  <input type="checkbox" name="switch" v-model="notmerge" value="true">
-                  <div class="state p-success">
-                    <label>すでにある語彙とマージしない</label>
-                  </div>
-                </div>
                 <div class="pull-right">
                   <button @click.prevent="refresh"><i class="fa fa-sync"></i></button>
                 </div>
@@ -79,20 +66,18 @@
           <div>
             <h2>License</h2>
             <p>
-              &copy; 2019-2020 Kato Akiru <wbr>/ Released under the <a href="https://github.com/paithiov909/baboon/blob/master/LICENSE">MIT license</a>
+              &copy; 2019-2021 Kato Akiru <wbr>/ Released under the <a href="https://github.com/paithiov909/baboon/blob/master/LICENSE">MIT license</a>
             </p>
         </section>
     </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" integrity="sha256-0rguYS0qgS6L4qVzANq4kjxPLtvnp5nn2nB5G1lWRv4=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.js" integrity="sha256-ufGElb3TnOtzl5E4c/qQnZFGP+FYEZj5kbSEdJNrw0A=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js" integrity="sha256-S1J4GVHHDMiirir9qsXWc8ZWw74PHHafpsHp5PXtjTs=" crossorigin="anonymous"></script>
-    <script src="dist/vuelidate.min.js"></script>
-    <script src="dist/validators.min.js"></script>
-    <script src="dist/baboon.js"></script>
-    <script src="dist/sharers/twitter.js"></script>
-    <script src="dist/sharers/facebook.js"></script>
-    <script src="dist/share-this.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" integrity="sha512-3n19xznO0ubPpSwYCRRBgHh63DrV+bdZfHK52b1esvId4GsfwStQNPJFjeQos2h3JwCmZl0/LgLxSKMAI55hgw==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.12/vue.min.js" integrity="sha512-BKbSR+cfyxLdMAsE0naLReFSLg8/pjbgfxHh/k/kUC82Hy7r6HtR5hLhobaln2gcTvzkyyehrdREdjpsQwy2Jw==" crossorigin="anonymous"></script>
+    <script src="./dist/baboon.js"></script>
+    <script src="./dist/vocab.js"></script>
+    <script src="./dist/sharers/twitter.js"></script>
+    <script src="./dist/sharers/facebook.js"></script>
+    <script src="./dist/share-this.js"></script>
 
     <script defer>
         // Avoid `console` errors in browsers that lack a console.
@@ -118,16 +103,13 @@
     </script>
 
     <script defer>
-      Vue.use(window.vuelidate.default)
       const shareThis = window.ShareThis({ sharers: [ window.ShareThisViaTwitter, window.ShareThisViaFacebook ]}).init()
       const app = new Vue({
         el: "#app",
         data () {
           return {
-            phrases: [],
-            tanka: [],
-            db: "https://docs.google.com/spreadsheets/d/e/2PACX-1vQn9FFMyLY_7tKVg_4gEU9wAWcwtXK6eT8Vf8Ob97jbzm2vAsERThvspBTdgihytUdRkPO1HvDxWBCo/pub?output=csv",
-            notmerge: true
+            phrases: null,
+            tanka: []
           }
         },
         methods: {
@@ -144,36 +126,8 @@
             return new Baboon(this.phrases)
           }
         },
-        watch: {
-          db () {
-            if (!this.$v.db.$invalid) {
-              this.$nextTick(async () => {
-                await axios.get(`https://gson.fayazara.now.sh?url=${this.db}`)
-                    .then(res => {
-                      this.phrases = Boolean(this.notmerge) ? res.data : res.data.concat(this.phrases)
-                    })
-                    .catch(error => {
-                      console.error(error)
-                    })
-              })
-            }
-          }
-        },
         async mounted () {
-          await axios.get(`https://gson.fayazara.now.sh?url=${this.db}`)
-            .then(res => {
-              this.phrases = res.data.concat(this.phrases)
-            })
-            .catch(e => {
-              console.warn("Cannot access to the default vocab file")
-            })
           this.refresh()
-        },
-        validations: {
-          db: {
-            required: validators.required,
-            url: validators.url
-          }
         }
       })
     </script>

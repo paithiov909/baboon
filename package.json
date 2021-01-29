@@ -1,12 +1,12 @@
 {
   "name": "baboon",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Yet another implementation of Inuzaru tanka generator",
   "main": "src/baboon.js",
   "scripts": {
     "dev": "webpack --mode development --watch",
     "build": "webpack --mode production",
-    "copy": "cpy ./dist/baboon.js ./docs/dist/"
+    "copy": "cpy ./dist/* ./docs/dist/"
   },
   "husky": {
     "hooks": {

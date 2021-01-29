@@ -1,13 +1,15 @@
 const path = require("path")
 
 module.exports = {
-  entry: path.resolve(__dirname, "src/baboon.js"),
+  entry: { 
+    main: path.resolve(__dirname, "src/baboon.js")
+  },
   output: {
-    filename: "baboon.js",
+    filename: "[name].js",
     path: path.resolve(__dirname, "dist"),
     library: "Baboon",
-    libraryTarget: "var",
-    libraryExport: "default"
+    libraryExport: "default",
+    libraryTarget: "var"
   },
   module: {
     rules: [
