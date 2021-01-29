@@ -73,7 +73,7 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" integrity="sha512-3n19xznO0ubPpSwYCRRBgHh63DrV+bdZfHK52b1esvId4GsfwStQNPJFjeQos2h3JwCmZl0/LgLxSKMAI55hgw==" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.12/vue.min.js" integrity="sha512-BKbSR+cfyxLdMAsE0naLReFSLg8/pjbgfxHh/k/kUC82Hy7r6HtR5hLhobaln2gcTvzkyyehrdREdjpsQwy2Jw==" crossorigin="anonymous"></script>
-    <script src="dist/baboon.js"></script>
+    <script src="dist/main.js"></script>
     <script src="dist/sharers/twitter.js"></script>
     <script src="dist/sharers/facebook.js"></script>
     <script src="dist/share-this.js"></script>
@@ -107,7 +107,6 @@
         el: "#app",
         data () {
           return {
-            phrases: null,
             tanka: []
           }
         },
@@ -122,7 +121,7 @@
         },
         computed: {
           baboon () {
-            return new Baboon(this.phrases)
+            return new Baboon(null)
           }
         },
         async mounted () {
