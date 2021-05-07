@@ -25,7 +25,7 @@
   },
   "homepage": "https://github.com/paithiov909/baboon#readme",
   "dependencies": {
-    "underscore": "1.12.1",
+    "underscore": "1.13.1",
     "underscore.string": "3.3.5"
   },
   "devDependencies": {
