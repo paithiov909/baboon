@@ -18,12 +18,11 @@
   "private": true,
   "repository": {
     "type": "git",
-    "url": "https://github.com/paithiov909/baboon.git"
+    "url": "https://github.com/lyrikuso/baboon.git"
   },
   "bugs": {
-    "url": "https://github.com/paithiov909/baboon/issues"
+    "url": "https://github.com/lyrikuso/baboon/issues"
   },
-  "homepage": "https://github.com/paithiov909/baboon#readme",
   "dependencies": {
     "underscore": "1.13.1",
     "underscore.string": "3.3.5"
