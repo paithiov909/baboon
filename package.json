@@ -29,8 +29,8 @@
     "underscore.string": "3.3.5"
   },
   "devDependencies": {
-    "@babel/core": "7.13.8",
-    "@babel/preset-env": "7.13.8",
+    "@babel/core": "7.14.0",
+    "@babel/preset-env": "7.14.1",
     "babel-loader": "8.2.2",
     "husky": "6.0.0",
     "prettier": "2.2.1",
