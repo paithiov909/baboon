@@ -29,7 +29,7 @@ export default class Baboon {
     this.recipe = typeof recipe == "undefined" ? rep : recipe;
   }
 
-  private sample(arr: Array<T>): Array<T> {
+  private sample(arr: Array<T>): unknown {
     const len = arr == null ? 0 : arr.length;
     return len ? arr[Math.floor(Math.random() * len)] : undefined;
   }
