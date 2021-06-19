@@ -4,7 +4,7 @@
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
-    <title>Baboon demo</title>
+    <title>Baboon｜「犬猿」（星野しずる）のクローン</title>
     <meta name="description" content="Yet another implementation of Inuzaru tanka generator">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" crossorigin="anonymous" />
@@ -12,15 +12,18 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fork-awesome/1.1.7/css/fork-awesome.min.css" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/kognise/water.css@latest/dist/light.min.css" />
     <link rel="stylesheet" href="dist/share-this.css" />
-    <meta property="og:url" content="https://lyrikuso.github.io/baboon/">
+    <meta property="og:url" content="https://paithiov909.github.io/baboon/">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Baboon demo">
-    <meta property="og:image" content="https://lyrikuso.github.io/baboon/baboon_header.jpg">
+    <meta property="og:title" content="Baboon｜「犬猿」（星野しずる）のクローン">
+    <meta property="og:image" content="https://paithiov909.github.io/baboon/baboon_header.jpg">
     <meta property="og:description" content="Yet another implementation of Inuzaru tanka generator">
     <meta name="twitter:card" content="summary_large_image">
     <style>
-      section {
-        margin: 1rem;
+      main::before {
+        display: inline-block;
+        content: '';
+        width: 100%;
+        border-top: 2px solid #8c8b8b;
       }
       .pull-right {
         float: right;
@@ -37,38 +40,37 @@
       <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
     <![endif]-->
 
-    <!-- Add your site or application content here -->
     <div id="app">
-        <section>
-          <h1>Baboon demo</h1>
-          <div>
-            <p>Yet another implementation of Inuzaru tanka generator. See <a href="https://github.com/lyrikuso/baboon" target="_new" rel="noopener">repository</a>.</p>
-            <p><a href="http://sasakiarara.com/sizzle/" target="_new" rel="noopener">短歌自動生成装置「犬猿」（星野しずる）</a>のクローンです。</p>
-            <p>デフォルトで登録されている語彙は本家の犬猿に収録されている語彙を借りたものです。</p>
-          </div>
-        </section>
-        <section>
-          <form @submit.stop>
-            <div>
-                <div class="pull-right">
-                  <button @click.prevent="refresh"><i class="fa fa-sync"></i></button>
+        <header>
+            <h1>Baboon｜「犬猿」（星野しずる）のクローン</h1>
+            <h3>Yet another implementation of Inuzaru tanka generator 🐶🐵</h3>
+        </header>
+        <main>
+            <section>
+                <p><a href="http://sasakiarara.com/sizzle/" target="_new" rel="noopener">短歌自動生成装置「犬猿」（星野しずる）</a>のクローンです。</p>
+                <p>デフォルトで登録されている語彙は本家の犬猿に収録されている語彙を借りたものです。</p>
+            </section>
+            <section>
+              <form @submit.stop>
+                <div>
+                    <div class="pull-right">
+                      <button @click.prevent="refresh"><i class="fa fa-sync"></i></button>
+                    </div>
+                    <div class="clearfix"></div>
                 </div>
-                <div class="clearfix"></div>
-            </div>
-          </form>
-        </section>
-        <section>
-          <ul>
-            <li v-for="(elem, idx) in tanka" :key="idx">{{ elem }}</li>
-          </ul>
-        </section>
-        <section>
-          <div>
-            <h2>License</h2>
-            <p>
-              &copy; 2019-2021 Kato Akiru <wbr>/ Released under the <a href="https://github.com/lyrikuso/baboon/blob/master/LICENSE">MIT license</a>
-            </p>
-        </section>
+              </form>
+            </section>
+            <section>
+              <ul>
+                <li v-for="(elem, idx) in tanka" :key="idx">{{ elem }}</li>
+              </ul>
+            </section>
+        </main>
+        <footer>
+          <p>
+            &copy; 2019-2021 paithiov909.｜<a href="https://github.com/paithiov909/baboon/blob/master/LICENSE">MIT license</a>
+          </p>
+        </footer>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" integrity="sha512-3n19xznO0ubPpSwYCRRBgHh63DrV+bdZfHK52b1esvId4GsfwStQNPJFjeQos2h3JwCmZl0/LgLxSKMAI55hgw==" crossorigin="anonymous"></script>
@@ -78,7 +80,7 @@
     <script src="dist/sharers/facebook.js"></script>
     <script src="dist/share-this.js"></script>
 
-    <script defer>
+    <script async>
         // Avoid `console` errors in browsers that lack a console.
         (function () {
             var method;
@@ -101,8 +103,8 @@
         }());
     </script>
 
-    <script defer>
-      const shareThis = window.ShareThis({ sharers: [ window.ShareThisViaTwitter, window.ShareThisViaFacebook ]}).init()
+    <script async>
+      const shareThis = window.ShareThis({ sharers: [ window.ShareThisViaTwitter, window.ShareThisViaFacebook ]}).init();
       const app = new Vue({
         el: "#app",
         data () {
@@ -113,21 +115,21 @@
         methods: {
           refresh () {
             this.$nextTick(() => {
-              this.tanka = [0,0,0,0,0].map(() => {
+              this.tanka = Array(8).fill("").map(bl => {
                 return this.baboon.create()
-              })
-            })
+              });
+            });
           }
         },
         computed: {
           baboon () {
-            return new Baboon(null)
+            return new Baboon()
           }
         },
         async mounted () {
-          this.refresh()
+          this.refresh();
         }
-      })
+      });
     </script>
 
 </body>

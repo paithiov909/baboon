@@ -1,4 +1,4 @@
-const vocab = [
+const dict = [
   { stamp: "default", word: "夜の", type: "修飾部", mora: 3 },
   { stamp: "default", word: "白い", type: "修飾部", mora: 3 },
   { stamp: "default", word: "黒い", type: "修飾部", mora: 3 },
@@ -540,4 +540,4 @@ const vocab = [
   { stamp: "default", word: "幕切れ", type: "名詞", mora: 4 },
   { stamp: "default", word: "音楽", type: "名詞", mora: 4 },
 ];
-export default vocab;
+export default dict;

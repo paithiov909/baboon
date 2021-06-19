@@ -1,8 +1,8 @@
 const path = require("path")
 
 module.exports = {
-  entry: { 
-    main: path.resolve(__dirname, "src/baboon.js")
+  entry: {
+    main: "./src/index.ts"
   },
   output: {
     filename: "[name].js",
@@ -14,19 +14,21 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.js$/,
+        test: /\.ts(x?)$/,
         exclude: /node_modules/,
         use: [
           {
-            loader: "babel-loader",
+            loader: "ts-loader",
             options: {
-              presets: [
-                "@babel/preset-env"
-              ]
+              transpileOnly: true,
+              configFile: path.resolve(__dirname, "webpack.tsconfig.json")
             }
           }
         ]
       }
     ]
+  },
+  resolve: {
+    extensions: [".js", ".ts", ".tsx"]
   }
 }

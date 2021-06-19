@@ -19,4 +19,4 @@ In browser:
 
 Copyright (c) 2019-2021 Kato Akiru
 
-Released under the MIT license. https://github.com/lyrikuso/baboon/blob/master/LICENSE
+Released under the MIT license. https://github.com/paithiov909/baboon/blob/master/LICENSE
