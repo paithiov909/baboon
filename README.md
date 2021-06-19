@@ -1,7 +1,13 @@
 # Baboon
 
-a clone of Inuzaru tanka generator
-(another implementation of `おもじゃん短歌自動生成スクリプト「犬猿」 written by Arara Sasaki, since 2008`).
+> a clone of Inuzaru tanka generator
+
+## What is this?
+
+「おもじゃん短歌自動生成スクリプト『犬猿』」（written by Arara Sasaki）をもとにした短歌の自動生成スクリプトです。
+
+本家よりもモダンな書き方になっていますが、依存ライブラリがあるので単体のJSとしてのサイズは大きくなっています。
+
 
 ## Usage
 
@@ -14,6 +20,7 @@ In browser:
   console.log(baboon.create());
 </script>
 ```
+
 
 ## License
 
