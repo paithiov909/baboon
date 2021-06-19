@@ -17,7 +17,7 @@
     "url": "https://github.com/paithiov909/baboon/issues"
   },
   "scripts": {
-    "dev": "npm run cpy && npx http-server ./docs --cors",
+    "dev": "npm run cpy && http-server ./docs --cors",
     "build": "webpack --mode production",
     "cpy": "cpy dist/main.js docs/dist/",
     "lint": "eslint src/index.ts --fix"
@@ -52,10 +52,6 @@
       "project": "./webpack.tsconfig.json"
     },
     "rules": {}
-  },
-  "dependencies": {
-    "underscore": "1.13.1",
-    "underscore.string": "3.3.5"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "4.27.0",

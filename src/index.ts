@@ -1,7 +1,5 @@
 import dic from "./dict.js";
 import rep from "./recipe.js";
-import _ from "underscore";
-import { include } from "underscore.string";
 
 export type Typetag = {
   m: string;
@@ -14,7 +12,7 @@ export type Vocab = {
   type: string;
   mora: number;
 };
-export type Dict = Array<Vocab>;
+export type Dict = Vocab[];
 export type Recipe = string[];
 
 export default class Baboon {
@@ -31,54 +29,60 @@ export default class Baboon {
     this.recipe = typeof recipe == "undefined" ? rep : recipe;
   }
 
-  private pickWord({ mora, type }): Array<string> {
-    return _.chain(this.dict)
+  private sample(arr: Array<T>): Array<T> {
+    const len = arr == null ? 0 : arr.length;
+    return len ? arr[Math.floor(Math.random() * len)] : undefined;
+  }
+  private isString(str: unknown): boolean {
+    if (str && typeof str.valueOf() === "string") {
+      return true;
+    }
+    return false;
+  }
+  private pickWord({ type, mora }): string[] {
+    const filtered = this.dict
       .filter((el) => {
         return el.mora == Number(mora);
       })
       .filter((el) => {
         return el.type == type;
-      })
-      .sample(1)
-      .pluck("word")
-      .value();
+      });
+    return this.sample(filtered).word;
   }
   private parseRecipe(str: string): Array<T> {
     const recipe = str.split("+");
-    return _.chain(recipe)
-      .map((el) => {
-        if (el.match(/^[msj]+\d/)) {
-          let type = this.typetag["m"];
-          if (include(el, "s")) {
-            type = this.typetag["s"];
-          }
-          if (include(el, "j")) {
-            type = this.typetag["j"];
-          }
-          return {
-            type: type,
-            mora: _.last(el.split("")),
-          };
-        } else {
-          return el;
+    return recipe.map((el) => {
+      if (el.match(/^[msj]+\d/)) {
+        let type = this.typetag["m"];
+        if (el.includes("s")) {
+          type = this.typetag["s"];
         }
-      })
-      .value();
+        if (el.includes("j")) {
+          type = this.typetag["j"];
+        }
+        return {
+          type: type,
+          mora: el.split("").slice(-1)[0],
+        };
+      } else {
+        return el;
+      }
+    });
   }
-
-  create(): string {
-    const recipe = _.sample(this.recipe);
-    return _.chain(this.parseRecipe(recipe))
+  public create(): string {
+    const recipe = this.sample(this.recipe);
+    const parsed = this.parseRecipe(recipe);
+    const result = parsed
       .map((el) => {
-        if (_.isObject(el)) {
-          return this.pickWord(el);
-        } else {
+        if (this.isString(el)) {
           return el;
+        } else {
+          return this.pickWord(el);
         }
       })
       .reduce((prev, el) => {
         return `${prev}${el}`;
-      }, "")
-      .value();
+      }, "");
+    return result;
   }
 }
