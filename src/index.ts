@@ -1,4 +1,5 @@
 import dic from "./dict.js";
+import rep from "./recipe.js";
 import _ from "underscore";
 import { include } from "underscore.string";
 
@@ -27,31 +28,7 @@ export default class Baboon {
         ? { m: "名詞", s: "修飾部", j: "述部" }
         : typetag;
     this.dict = typeof dict == "undefined" ? dic : dict;
-    this.recipe =
-      typeof recipe == "undefined"
-        ? [
-            "m4+の+m3+j4+s5+s4+m2+j6+m2",
-            "s5+m3+の+m2+j6+m3+j4+s4+m3",
-            "m4+j5+s3+m4+は+m6+の+m3+j4",
-            "m4+j5+s3+m4+j4+s4+m4+j3",
-            "m4+j4+m3+の+m4+j5+s3+m4+j3",
-            "s5+m6+j6+s3+m3+j6+m2",
-            "m4+j5+s3+m4+j8+s5+m2",
-            "m4+j4+m3+j6+s7+s3+m4",
-            "s5+m6+j6+s7+m2+j5",
-            "s5+m2+j5+m4+は+s4+m2+j8",
-            "s5+s7+m2+j3+m6+j8",
-            "m2+j3+s3+m3+j6+m2+の+m3+j8",
-            "m4+j6+m2+　+s5+m2+j5+s3+m4",
-            "s5+m3+j4+s5+m3+の+m2+j5+m3",
-            "m4+は+m6+の+m2+j3+s4+m2+j6+m2",
-            "m4+j4+s4+m4+は+s7+m4+j3",
-            "s5+s4+m2+の+m4+j5+s3+m3+j4",
-            "s5+m4+j3+m4+j4+s4+m4+j3",
-            "m4+j8+s5+m3+の+m2+j4+m4",
-            "s5+m2+の+m3+j6+m6+は+s4+m3",
-          ]
-        : recipe;
+    this.recipe = typeof recipe == "undefined" ? rep : recipe;
   }
 
   private pickWord({ mora, type }): Array<string> {

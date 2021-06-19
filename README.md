@@ -1,22 +1,20 @@
 # Baboon
 
 a clone of Inuzaru tanka generator
+(another implementation of `おもじゃん短歌自動生成スクリプト「犬猿」 written by Arara Sasaki, since 2008`).
 
 ## Usage
 
 In browser:
 
 ```html
-<script src="baboon/dist/main.js"></script>
+<script src="https://raw.githack.com/paithiov909/baboon/master/dist/main.js"></script>
 <script>
-  const baboon = new Baboon()
-  console.log(baboon.create())
+  const baboon = new Baboon();
+  console.log(baboon.create());
 </script>
 ```
 
-
 ## License
 
-Copyright (c) 2019-2021 Kato Akiru
-
-Released under the MIT license. https://github.com/paithiov909/baboon/blob/master/LICENSE
+&copy; 2019-2021 paithiov909｜[MIT license](https://github.com/paithiov909/baboon/blob/master/LICENSE) 

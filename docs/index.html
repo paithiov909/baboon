@@ -48,7 +48,7 @@
         <main>
             <section>
                 <p><a href="http://sasakiarara.com/sizzle/" target="_new" rel="noopener">短歌自動生成装置「犬猿」（星野しずる）</a>のクローンです。</p>
-                <p>デフォルトで登録されている語彙は本家の犬猿に収録されている語彙を借りたものです。</p>
+                <p>組み込まれている語彙と構文は「犬猿」に収録されているものからそのまま借りています。</p>
             </section>
             <section>
               <form @submit.stop>
@@ -102,9 +102,10 @@
             }
         }());
     </script>
-
     <script async>
       const shareThis = window.ShareThis({ sharers: [ window.ShareThisViaTwitter, window.ShareThisViaFacebook ]}).init();
+    </script>
+    <script async>
       const app = new Vue({
         el: "#app",
         data () {
