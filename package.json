@@ -17,9 +17,8 @@
     "url": "https://github.com/paithiov909/baboon/issues"
   },
   "scripts": {
-    "dev": "npm run cpy && http-server ./docs --cors",
+    "dev": "http-server ./docs --cors",
     "build": "webpack --mode production",
-    "cpy": "cpy dist/main.js docs/dist/",
     "lint": "eslint src/index.ts --fix"
   },
   "husky": {
