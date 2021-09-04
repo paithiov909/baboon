@@ -22,5 +22,6 @@ jobs:
       - name: Create pr
         uses: peter-evans/create-pull-request@v3
         with:
+          token: ${{ secrets.GITHUB_TOKEN }}
           commit-message: Monthly update
           delete-branch: true
