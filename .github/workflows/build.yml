@@ -17,7 +17,7 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'npm'
-      - run: npm install
+      - run: npm install -D
       - run: npm run build
       - name: Create pr
         uses: peter-evans/create-pull-request@v3
