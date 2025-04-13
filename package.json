@@ -1,6 +1,6 @@
 {
   "name": "baboon",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "Yet another implementation of Inuzaru tanka generator",
   "main": "dist/main.js",
   "author": "paithiov909",
@@ -61,7 +61,7 @@
     "eslint-plugin-prettier": "4.2.1",
     "http-server": "14.1.1",
     "husky": "8.0.3",
-    "lint-staged": "13.3.0",
+    "lint-staged": "^15.5.1",
     "prettier": "2.8.8",
     "ts-loader": "9.5.2",
     "webpack": "5.94.0",
