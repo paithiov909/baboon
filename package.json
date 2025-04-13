@@ -62,7 +62,7 @@
     "http-server": "14.1.1",
     "husky": "8.0.3",
     "lint-staged": "^15.5.1",
-    "prettier": "2.8.8",
+    "prettier": "3.5.3",
     "ts-loader": "9.5.2",
     "webpack": "5.99.5",
     "webpack-cli": "4.10.0"
